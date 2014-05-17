@@ -12,6 +12,7 @@ app.configure(function() {
   app.use(partials());
   app.use(express.bodyParser());
   app.use('/bower_components', express.static(__dirname + '/bower_components'));
+  app.use('/client', express.static(__dirname + '/client'));
   app.use(express.static(__dirname + '/public'));
   // app.use(express.cookieParser('shhhh, very secret'));
   // app.use(express.session());
