@@ -16,6 +16,8 @@ app.controller('ShortenController', function($scope, $http){
         .error(function(){
           console.log('error in url!')
         })
+    } else {
+      $scope.invalid = true;
     }
   };
 });
