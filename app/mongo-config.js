@@ -41,27 +41,27 @@ exports.Link = mongoose.model('Url', urlSchema);
 
 //========================================================
 
-//creates user schema
-var userSchema = new mongoose.Schema({
-  username: {type: String, required: true, index: {unique: true}},
-  password: {type: String, required: true}
-});
+// //creates user schema
+// var userSchema = new mongoose.Schema({
+//   username: {type: String, required: true, index: {unique: true}},
+//   password: {type: String, required: true}
+// });
 
-//hashes user password before saving to database using bcrypt without salting
-userSchema.pre('save', function(next) {
-  var cipher = Promise.promisify(bcrypt.hash);
-  cipher(this.password, null, null).bind(this)
-    .then(function(hash) {
-      this.password = hash;
-    }).then(next);
-});
+// //hashes user password before saving to database using bcrypt without salting
+// userSchema.pre('save', function(next) {
+//   var cipher = Promise.promisify(bcrypt.hash);
+//   cipher(this.password, null, null).bind(this)
+//     .then(function(hash) {
+//       this.password = hash;
+//     }).then(next);
+// });
 
-//method for documents to compare password to the hashed password in the database on login
-userSchema.methods.comparePassword = function(attemptedPassword, cb){
-  bcrypt.compare(attemptedPassword, this.password, function(err, isMatch) {
-    cb(isMatch);
-  });
-};
+// //method for documents to compare password to the hashed password in the database on login
+// userSchema.methods.comparePassword = function(attemptedPassword, cb){
+//   bcrypt.compare(attemptedPassword, this.password, function(err, isMatch) {
+//     cb(isMatch);
+//   });
+// };
 
-//exports model created from schema
-exports.User = mongoose.model('User', userSchema);
+// //exports model created from schema
+// exports.User = mongoose.model('User', userSchema);

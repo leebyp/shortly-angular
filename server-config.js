@@ -1,6 +1,6 @@
 var express = require('express');
 var partials = require('express-partials');
-var util = require('./lib/utility');
+// var util = require('./lib/utility');
 
 var handler = require('./lib/request-handler');
 
@@ -16,18 +16,18 @@ app.configure(function() {
   app.use(express.session());
 });
 
-app.get('/', util.checkUser, handler.renderIndex);
-app.get('/create', util.checkUser, handler.renderIndex);
+app.get('/', /*util.checkUser,*/ handler.renderIndex);
+app.get('/create', /*util.checkUser,*/ handler.renderIndex);
 
-app.get('/links', util.checkUser, handler.fetchLinks);
+app.get('/links', /*util.checkUser,*/ handler.fetchLinks);
 app.post('/links', handler.saveLink);
 
-app.get('/login', handler.loginUserForm);
-app.post('/login', handler.loginUser);
-app.get('/logout', handler.logoutUser);
+// app.get('/login', handler.loginUserForm);
+// app.post('/login', handler.loginUser);
+// app.get('/logout', handler.logoutUser);
 
-app.get('/signup', handler.signupUserForm);
-app.post('/signup', handler.signupUser);
+// app.get('/signup', handler.signupUserForm);
+// app.post('/signup', handler.signupUser);
 
 app.get('/*', handler.navToLink);
 
