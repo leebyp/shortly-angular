@@ -1,11 +1,11 @@
 <div ng-controller='HomeController'>
-  <input ng-model='search'/>
-  <table>
-    <div class='link' ng-repeat='link in links | orderBy : "-visits"'>
+  <input ng-model='search' placeholder='Search for site...'/>
+  <div>
+    <div class='link' ng-repeat='link in links | filter : {title:search} | orderBy : "-visits"'>
       <div class='visits'><div class='count'>{{link.visits}}</div></div>
       <div class='title'>{{link.title}}</div>
       <div class='original'>{{link.url}}</div>
       <div><a href='{{link.base_url}}/{{link.code}}'>{{link.base_url}}/{{link.code}}</a></div>
     </div>
-  </table>
+  </div>
 </div>
