@@ -4,6 +4,9 @@ app.controller('HomeController', function($scope, $http){
   $http.get('/links').success(function(data){
     $scope.links = data;
   })
+  $scope.urlUsed = function(linkCode){
+    console.log(linkCode);
+  }
 })
 
 app.controller('ShortenController', function($scope, $http){
