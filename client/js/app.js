@@ -7,8 +7,18 @@ app.controller('HomeController', function($scope, $http){
 })
 
 app.controller('ShortenController', function($scope, $http){
-  
-})
+  $scope.saveLink = function(){
+    if($scope.form.$valid){
+      $http.post('/links', {url: $scope.newurl})
+        .success(function(){
+          console.log($scope.newurl, "posted!")
+        })
+        .error(function(){
+          console.log('error in url!')
+        })
+    }
+  };
+});
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $routeProvider
