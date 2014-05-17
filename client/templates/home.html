@@ -1,7 +1,7 @@
 <div ng-controller='HomeController'>
   <input ng-model='search'/>
   <table>
-    <div class='link' ng-repeat='link in links'>
+    <div class='link' ng-repeat='link in links | orderBy : "-visits"'>
       <div class='visits'><div class='count'>{{link.visits}}</div></div>
       <div class='title'>{{link.title}}</div>
       <div class='original'>{{link.url}}</div>
