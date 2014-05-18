@@ -1,5 +1,8 @@
+// instantiates the model 'app' in angular using the dependency ngRoute
+
 var app = angular.module('app', ['ngRoute']);
 
+// instantiate the HomeController for the links view data
 app.controller('HomeController', function($scope, $http){
   $http.get('/links').success(function(data){
     $scope.links = data;
@@ -9,6 +12,7 @@ app.controller('HomeController', function($scope, $http){
   }
 })
 
+// instantiate the HomeController for the shorten view data
 app.controller('ShortenController', function($scope, $http){
   $scope.saveLink = function(){
     if($scope.form.$valid){
@@ -25,12 +29,15 @@ app.controller('ShortenController', function($scope, $http){
   };
 });
 
+// configures client side routing in app
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $routeProvider
+  // routes to use home.html and HomeController when at '/'
    .when('/', {
     templateUrl: '/client/templates/home.html',
     controller: 'HomeController'
   })
+  // routes to use shorten.html and ShortenController when at '/create'
    .when('/create', {
     templateUrl: '/client/templates/shorten.html',
     controller: 'ShortenController'

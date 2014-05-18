@@ -1,6 +1,8 @@
 <div ng-controller='HomeController'>
+  <!-- search for existing links by title -->
   <input ng-model='search' placeholder='Search for site...'/>
   <div>
+    <!-- repeatedly create links info from data -->
     <div class='link' ng-repeat='link in links | filter : {title:search} | orderBy : "-visits"'>
       <div class='visits'>visits:<span class='count'>{{link.visits}}</span></div>
       <div class='title'>{{link.title}}</div>

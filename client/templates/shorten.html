@@ -1,37 +1,10 @@
 <div ng-controller='ShortenController'>
+  <!-- form to create shortened url links -->
   <form class='creator' name='form'>
     URL: <input type='url' ng-model='newurl' ng-pattern='/^(?!mailto:)(?:(?:https?|ftp):\/\/)?(?:\S+(?::\S*)?@)?(?:(?:(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[0-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))|localhost)(?::\d{2,5})?(?:\/[^\s]*)?$/i' placeholder='enter url to shorten' required/>
     <input type='submit' value='submit' ng-click='saveLink()'/>
   </form>
+  <!-- error div on invalid url submission -->
   <div class="error" ng-show="invalid">
     Please enter valid url!</div>
 </div>
-
-
-
-<!--     <span class="error" ng-show="form.input.$error.url">
-    Not valid url!</span>
- -->
-
-<!-- <form novalidate class="css-form">
-    Name:
-      <input type="text" ng-model="user.name" required /><br />
-    E-mail: <input type="email" ng-model="user.email" required /><br />
-    Gender: <input type="radio" ng-model="user.gender" value="male" />male
-    <input type="radio" ng-model="user.gender" value="female" />female<br />
-    <button ng-click="reset()">RESET</button>
-    <button ng-click="update(user)">SAVE</button>
-  </form>
-
-  <form name="myForm" ng-controller="Ctrl">
-  URL: <input type="url" name="input" ng-model="text" required>
-  
-  <span class="error" ng-show="myForm.input.$error.url">
-    Not valid url!</span>
-  <tt>text = {{text}}</tt><br/>
-  <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
-  <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
-  <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
-  <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/>
-  <tt>myForm.$error.url = {{!!myForm.$error.url}}</tt><br/>
- </form> -->

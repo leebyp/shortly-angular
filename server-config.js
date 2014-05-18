@@ -11,6 +11,7 @@ app.configure(function() {
   app.set('view engine', 'ejs');
   app.use(partials());
   app.use(express.bodyParser());
+  // app uses client side bower components modules
   app.use('/bower_components', express.static(__dirname + '/bower_components'));
   app.use('/client', express.static(__dirname + '/client'));
   app.use(express.static(__dirname + '/public'));
@@ -18,6 +19,7 @@ app.configure(function() {
   // app.use(express.session());
 });
 
+// remove user authentication functionality
 app.get('/', /*util.checkUser,*/ handler.renderIndex);
 app.get('/create', /*util.checkUser,*/ handler.renderIndex);
 
